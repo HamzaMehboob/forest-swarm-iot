@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swarm Robot Live</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js" onload="console.log('Chart.js CDN loaded')" onerror="console.error('Failed to load Chart.js CDN')"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-2 h-screen flex flex-col">
+        <h1 class="text-2xl sm:text-3xl font-bold text-center mb-2 sm:mb-4 text-white">Swarm Robot Live</h1>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 flex-1">
+            <div class="card p-2 sm:p-4 rounded-lg shadow-lg">
+                <h2 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Robot Locations in Forest</h2>
+                <div id="map" class="rounded-lg"></div>
+            </div>
+
+            <div class="card p-2 sm:p-4 rounded-lg shadow-lg">
+                <h2 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Battery Levels</h2>
+                <canvas id="batteryChart"></canvas>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 flex-1 mt-2 sm:mt-4">
+            <div class="card p-2 sm:p-4 rounded-lg shadow-lg">
+                <h2 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Robot Data - Tap to see live feed</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg">
+                        <thead class="bg-gray-200">
+                            <tr>
+                                <th class="p-1 sm:p-2 text-left text-sm sm:text-base">Type</th>
+                                <th class="p-1 sm:p-2 text-left text-sm sm:text-base">ID</th>
+                                <th class="p-1 sm:p-2 text-left text-sm sm:text-base">Name</th>
+                                <th class="p-1 sm:p-2 text-left text-sm sm:text-base">Temp (°C)</th>
+                                <th class="p-1 sm:p-2 text-left text-sm sm:text-base">Location</th>
+                                <th class="p-1 sm:p-2 text-left text-sm sm:text-base">Battery (%)</th>
+                                <th class="p-1 sm:p-2 text-left text-sm sm:text-base">Water (L)</th>
+                                <th class="p-1 sm:p-2 text-left text-sm sm:text-base">Last Charge</th>
+                                <th class="p-1 sm:p-2 text-left text-sm sm:text-base">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="robotTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="videoSection" class="card p-2 sm:p-4 rounded-lg shadow-lg">
+                <h2 id="videoTitle" class="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Robot Video Feed</h2>
+                <div class="relative" style="padding-bottom: 56.25%;">
+                    <video id="videoFrame" class="absolute top-0 left-0 w-full h-full" autoplay muted loop controls poster="https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80">
+                        <source src="" type="video/mp4">
+                        <p>Video failed to load. Check if videos/forest1.mp4, videos/forest2.mp4, videos/forest3.mp4, or videos/forest4.mp4 exists.</p>
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

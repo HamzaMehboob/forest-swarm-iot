@@ -1,0 +1,71 @@
+body {
+    background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.card { 
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 0.5rem; /* Reduced padding to maximize chart space */
+}
+#map { 
+    height: 250px; 
+}
+#robotTable {
+    max-height: 150px;
+    overflow-y: auto;
+}
+#robotTable tr {
+    cursor: pointer;
+}
+#robotTable tr:hover {
+    background-color: #f1f1f1;
+}
+#robotTable img {
+    max-width: 32px;
+    max-height: 32px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+#videoSection {
+    display: block;
+}
+#videoFrame {
+    background-color: #000;
+}
+#batteryChart {
+    width: 100% !important;
+    height: 200px !important; /* Increased for more y-axis space */
+    max-height: 200px;
+}
+@media (max-width: 640px) {
+    #map { 
+        height: 150px; 
+    }
+    #robotTable {
+        max-height: 150px;
+    }
+    #robotTable img {
+        max-width: 24px;
+        max-height: 24px;
+    }
+    #batteryChart {
+        height: 180px !important; /* Slightly smaller for mobile */
+        max-height: 180px;
+    }
+    .card { 
+        padding: 0.25rem; /* Further reduced for mobile */
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.125rem;
+    }
+    table {
+        font-size: 0.75rem;
+    }
+}
