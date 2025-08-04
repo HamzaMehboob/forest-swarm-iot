@@ -149,3 +149,4 @@ showVideo(sampleRobots[0]);
 
 console.log('Initializing with sample robots');
 sampleRobots.forEach(robot => updateRobotData(robot));
+
